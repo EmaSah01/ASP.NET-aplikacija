@@ -1,6 +1,10 @@
 ﻿
 namespace ASP.NET_aplikacija.Services
 {
+    public interface IAccountService
+    {
+        Task<string> GetAccountData(string accountId);
+    }
     public class AccountService : IAccountService
     {
         private readonly IExternalApiService _externalApi;

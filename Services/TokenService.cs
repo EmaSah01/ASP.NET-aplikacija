@@ -3,6 +3,10 @@ using Microsoft.Extensions.Options;
 
 namespace ASP.NET_aplikacija.Services
 {
+    public interface ITokenService
+    {
+        Task<string> GetAccessToken();
+    }
     public class TokenService : ITokenService
     {
         private readonly OAuthSettings _settings;
