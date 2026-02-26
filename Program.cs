@@ -4,22 +4,27 @@ using ASP.NET_aplikacija.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Configure settings from appsettings.json
 builder.Services.Configure<OAuthSettings>(
-builder.Configuration.GetSection("OAuth"));
-
+    builder.Configuration.GetSection("OAuth"));
 builder.Services.Configure<ExternalApiSettings>(
-builder.Configuration.GetSection("ExternalApi"));
+    builder.Configuration.GetSection("ExternalApi"));
 
+// ---- Registracija servisa ----
 
+// Dummy TokenService ne treba HttpClient
+builder.Services.AddScoped<ITokenService, TokenService>();
 
-builder.Services.AddHttpClient<ITokenService, TokenService>();
-builder.Services.AddHttpClient<IExternalApiService, ExternalApiService>();
+// ExternalApiService i AccountService
+builder.Services.AddScoped<IExternalApiService, ExternalApiService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
