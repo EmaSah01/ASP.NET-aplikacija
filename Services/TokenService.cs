@@ -1,38 +1,29 @@
 ﻿using ASP.NET_aplikacija.Configuration;
-using IdentityModel.Client;
+using ASP.NET_aplikacija.Models;
 using Microsoft.Extensions.Options;
+using System.Net.Http;
+using System.Text.Json;
 
 namespace ASP.NET_aplikacija.Services
 {
 
-    public class TokenService : ITokenService
+    namespace ASP.NET_aplikacija.Services
     {
-        private readonly OAuthSettings _settings;
-        private readonly HttpClient _httpClient;
-
-        public TokenService(
-            IOptions<OAuthSettings> settings,
-            HttpClient httpClient)
+        public class TokenService : ITokenService
         {
-            _settings = settings.Value;
-            _httpClient = httpClient;
-        }
+            private readonly OAuthSettings _settings;
 
-        public async Task<string> GetAccessToken()
-        {
-            var response = await _httpClient.RequestClientCredentialsTokenAsync(
-                new ClientCredentialsTokenRequest
-                {
-                    Address = _settings.TokenUrl,
-                    ClientId = _settings.ClientId,
-                    ClientSecret = _settings.ClientSecret,
-                    Scope = _settings.Scope
-                });
+            public TokenService(IOptions<OAuthSettings> settings)
+            {
+                _settings = settings.Value;
+            }
 
-            if (response.IsError)
-                throw new Exception(response.Error);
-
-            return response.AccessToken;
+            public async Task<string> GetAccessToken()
+            {
+                // DEV ONLY: vraća dummy token
+                await Task.Delay(50); // simulira async call
+                return "dummy-access-token";
+            }
         }
     }
 }

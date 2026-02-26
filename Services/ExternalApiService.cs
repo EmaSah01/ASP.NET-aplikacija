@@ -25,15 +25,9 @@ namespace ASP.NET_aplikacija.Services
         {
             var token = await _tokenService.GetAccessToken();
 
-            _httpClient.BaseAddress = new Uri(_settings.BaseUrl);
-            _httpClient.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue("Bearer", token);
-
-            var response = await _httpClient.GetAsync($"accounts/{accountId}");
-
-            response.EnsureSuccessStatusCode();
-
-            return await response.Content.ReadAsStringAsync();
+            // Postavimo fiktivni odgovor za testiranje
+            await Task.Delay(50); // simulacija poziva
+            return $"{{\"accountId\":\"{accountId}\", \"balance\": 1000, \"tokenUsed\": \"{token}\"}}";
         }
     }
 }
