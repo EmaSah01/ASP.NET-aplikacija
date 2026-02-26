@@ -3,10 +3,16 @@ namespace ASP.NET_aplikacija.Services
 {
     public class AccountService : IAccountService
     {
+        private readonly IExternalApiService _externalApi;
+
+        public AccountService(IExternalApiService externalApi)
+        {
+            _externalApi = externalApi;
+        }
+
         public async Task<string> GetAccountData(string accountId)
         {
-            await Task.Delay(500); // simulacija poziva eksternog API-ja
-            return $"Podaci za account {accountId}";
+            return await _externalApi.GetAccountData(accountId);
         }
     }
 }
