@@ -1,5 +1,7 @@
-﻿using ASP.NET_aplikacija.Services;
+﻿using ASP.NET_aplikacija.DTO;
+using ASP.NET_aplikacija.Services;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace ASP.NET_aplikacija.Controllers
 {
@@ -7,26 +9,17 @@ namespace ASP.NET_aplikacija.Controllers
     [Route("api/[controller]")]
     public class RatingController : ControllerBase
     {
-        private readonly IAccountService _service;
+        private readonly IRatingService _service;
 
-        public RatingController(IAccountService service)
+        public RatingController(IRatingService service)
         {
             _service = service;
         }
 
-        [HttpGet("list-of-ratings")]
-        public async Task<IActionResult> GetRatings()
+        [HttpGet]
+        public List<RatingDTO> GetRatings(string coconut)
         {
-            var tasks = new List<Task<string>>();
-
-            for (int i = 1; i <= 50; i++)
-            {
-                tasks.Add(_service.GetAccountData(i.ToString()));
-            }
-
-            var results = await Task.WhenAll(tasks);
-
-            return Ok(results);
+            return _service.GetRatings(coconut);
         }
     }
 }

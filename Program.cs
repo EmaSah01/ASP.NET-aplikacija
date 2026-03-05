@@ -1,33 +1,41 @@
-using ASP.NET_aplikacija.Configuration;
 using ASP.NET_aplikacija.Services;
+using ASP.NET_aplikacija.Services.Implementation;
+using ASP.NET_aplikacija.DAO;
+using ASP.NET_aplikacija.Mappers;
+using ASP.NET_aplikacija.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container
 builder.Services.AddControllers();
 
-// Swagger/OpenAPI
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configure settings from appsettings.json
-builder.Services.Configure<OAuthSettings>(
-    builder.Configuration.GetSection("OAuth"));
-builder.Services.Configure<ExternalApiSettings>(
-    builder.Configuration.GetSection("ExternalApi"));
 
-// ---- Registracija servisa ----
+// DATABASE (može InMemory za testiranje)
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseInMemoryDatabase("RatingsDB"));
 
-// Dummy TokenService ne treba HttpClient
-builder.Services.AddScoped<ITokenService, TokenService>();
 
-// ExternalApiService i AccountService
-builder.Services.AddScoped<IExternalApiService, ExternalApiService>();
-builder.Services.AddScoped<IAccountService, AccountService>();
+// DEPENDENCY INJECTION
+
+// Service
+builder.Services.AddScoped<IRatingService, RatingImpl>();
+
+// DAO
+builder.Services.AddScoped<RatingDAO>();
+
+// Mapper
+builder.Services.AddScoped<RatingMapper>();
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+// HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
