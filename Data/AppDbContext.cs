@@ -1,6 +1,5 @@
 ﻿using ASP.NET_aplikacija.Entities;
 using Microsoft.EntityFrameworkCore;
-using RatingApp.Entities;
 using System.Collections.Generic;
 
 namespace ASP.NET_aplikacija.Data
