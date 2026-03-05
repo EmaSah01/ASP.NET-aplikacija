@@ -15,7 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-// DATABASE (moûe InMemory za testiranje)
+// DATABASE (mo≈æe InMemory za testiranje)
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("RatingsDB"));
 
