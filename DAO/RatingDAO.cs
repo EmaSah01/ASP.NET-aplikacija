@@ -1,6 +1,6 @@
-﻿using ASP.NET_aplikacija.Entities;
-using ASP.NET_aplikacija.Data;
-using System;
+﻿using System;
+using ASP.NET_aplikacija.DL.Entities;
+using ASP.NET_aplikacija.Areas.Identity.Data;
 
 namespace ASP.NET_aplikacija.DAO
 {

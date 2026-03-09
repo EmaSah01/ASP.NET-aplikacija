@@ -1,6 +1,6 @@
-﻿using ASP.NET_aplikacija.DTO;
+﻿using ASP.NET_aplikacija.DL.DTO;
 
-namespace ASP.NET_aplikacija.Services
+namespace ASP.NET_aplikacija.BL.Services
 {
     public interface IRatingService
     {

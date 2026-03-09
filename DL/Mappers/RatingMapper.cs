@@ -1,7 +1,7 @@
-﻿using ASP.NET_aplikacija.DTO;
-using ASP.NET_aplikacija.Entities;
+﻿using ASP.NET_aplikacija.DL.DTO;
+using ASP.NET_aplikacija.DL.Entities;
 
-namespace ASP.NET_aplikacija.Mappers
+namespace ASP.NET_aplikacija.DL.Mappers
 {
     public class RatingMapper
     {

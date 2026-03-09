@@ -1,9 +1,9 @@
-﻿using ASP.NET_aplikacija.DTO;
-using ASP.NET_aplikacija.Services;
+﻿using ASP.NET_aplikacija.BL.Services;
+using ASP.NET_aplikacija.DL.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace ASP.NET_aplikacija.Controllers
+namespace ASP.NET_aplikacija.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

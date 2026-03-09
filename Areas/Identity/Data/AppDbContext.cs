@@ -1,8 +1,8 @@
-﻿using ASP.NET_aplikacija.Entities;
+﻿using ASP.NET_aplikacija.DL.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace ASP.NET_aplikacija.Data
+namespace ASP.NET_aplikacija.Areas.Identity.Data
 {
     public class AppDbContext : DbContext
     {

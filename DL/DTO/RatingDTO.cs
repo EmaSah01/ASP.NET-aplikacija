@@ -1,4 +1,4 @@
-﻿namespace ASP.NET_aplikacija.DTO
+﻿namespace ASP.NET_aplikacija.DL.DTO
 {
     public class RatingDTO
     {

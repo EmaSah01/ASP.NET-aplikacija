@@ -1,4 +1,4 @@
-﻿namespace ASP.NET_aplikacija.Entities
+﻿namespace ASP.NET_aplikacija.DL.Entities
 {
     public class RatingEntity
     {

@@ -1,9 +1,9 @@
-using ASP.NET_aplikacija.Services;
-using ASP.NET_aplikacija.Services.Implementation;
 using ASP.NET_aplikacija.DAO;
-using ASP.NET_aplikacija.Mappers;
-using ASP.NET_aplikacija.Data;
 using Microsoft.EntityFrameworkCore;
+using ASP.NET_aplikacija.BL.Services;
+using ASP.NET_aplikacija.BL.Services.Implementation;
+using ASP.NET_aplikacija.DL.Mappers;
+using ASP.NET_aplikacija.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,10 +1,10 @@
-﻿using ASP.NET_aplikacija.DAO;
-using ASP.NET_aplikacija.DTO;
-using ASP.NET_aplikacija.Entities;
-using ASP.NET_aplikacija.Mappers;
-using ASP.NET_aplikacija.Services;
+﻿using ASP.NET_aplikacija.BL.Services;
+using ASP.NET_aplikacija.DAO;
+using ASP.NET_aplikacija.DL.DTO;
+using ASP.NET_aplikacija.DL.Entities;
+using ASP.NET_aplikacija.DL.Mappers;
 
-namespace ASP.NET_aplikacija.Services.Implementation
+namespace ASP.NET_aplikacija.BL.Services.Implementation
 {
     public class RatingImpl : IRatingService
     {

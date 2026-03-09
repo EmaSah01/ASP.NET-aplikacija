@@ -8,14 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Services\NewFolder1\**" />
-    <Compile Remove="Services\NewFolder\**" />
-    <Content Remove="Services\NewFolder1\**" />
-    <Content Remove="Services\NewFolder\**" />
-    <EmbeddedResource Remove="Services\NewFolder1\**" />
-    <EmbeddedResource Remove="Services\NewFolder\**" />
-    <None Remove="Services\NewFolder1\**" />
-    <None Remove="Services\NewFolder\**" />
+    <Compile Remove="BL\Services\NewFolder1\**" />
+    <Compile Remove="BL\Services\NewFolder\**" />
+    <Content Remove="BL\Services\NewFolder1\**" />
+    <Content Remove="BL\Services\NewFolder\**" />
+    <EmbeddedResource Remove="BL\Services\NewFolder1\**" />
+    <EmbeddedResource Remove="BL\Services\NewFolder\**" />
+    <None Remove="BL\Services\NewFolder1\**" />
+    <None Remove="BL\Services\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
