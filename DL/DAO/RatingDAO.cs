@@ -2,7 +2,7 @@
 using ASP.NET_aplikacija.DL.Entities;
 using ASP.NET_aplikacija.Areas.Identity.Data;
 
-namespace ASP.NET_aplikacija.DAO
+namespace ASP.NET_aplikacija.DL.DAO
 {
     public class RatingDAO
     {

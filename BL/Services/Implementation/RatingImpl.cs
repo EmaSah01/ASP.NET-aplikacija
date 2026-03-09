@@ -1,5 +1,5 @@
 ﻿using ASP.NET_aplikacija.BL.Services;
-using ASP.NET_aplikacija.DAO;
+using ASP.NET_aplikacija.DL.DAO;
 using ASP.NET_aplikacija.DL.DTO;
 using ASP.NET_aplikacija.DL.Entities;
 using ASP.NET_aplikacija.DL.Mappers;
