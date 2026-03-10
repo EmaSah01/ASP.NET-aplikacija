@@ -22,5 +22,17 @@ namespace ASP.NET_aplikacija.DL.Mappers
                 Score = entity.Score
             };
         }
+
+
+        //konverzija liste 
+        public List<RatingEntity> ToEntities(List<RatingDTO> dtos)
+        {
+            return dtos.Select(d => ToEntity(d)).ToList();
+        }
+
+        public List<RatingDTO> ToDTOs(List<RatingEntity> entities)
+        {
+            return entities.Select(e => ToDTO(e)).ToList();
+        }
     }
 }

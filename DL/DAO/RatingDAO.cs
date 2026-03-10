@@ -7,6 +7,8 @@ namespace ASP.NET_aplikacija.DL.DAO
     public class RatingDAO
     {
         private readonly AppDbContext _context;
+        // ova varijabla varijabla
+        // predstavlja konekciju sa bazom podataka
 
         public RatingDAO(AppDbContext context)
         {
@@ -20,3 +22,7 @@ namespace ASP.NET_aplikacija.DL.DAO
         }
     }
 }
+
+// klasa koja sadrzi metode za pristup bazi podataka,
+// npr. SaveRatings koja cuva ocene u bazu,
+// GetRatings koja vraca ocene iz baze itd.

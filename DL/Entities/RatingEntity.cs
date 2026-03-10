@@ -9,3 +9,6 @@
         public int Score { get; set; }
     }
 }
+
+
+// model baze podataka

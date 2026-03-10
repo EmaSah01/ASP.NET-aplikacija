@@ -15,9 +15,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-// DATABASE (može InMemory za testiranje)
+// Database connection
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseInMemoryDatabase("RatingsDB"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 // DEPENDENCY INJECTION
