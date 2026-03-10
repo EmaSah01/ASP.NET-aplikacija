@@ -18,7 +18,7 @@ Projekt je zamišljen kao primjer modernog ASP.NET backend-a sa čistom arhitekt
 
 - .NET 7 / ASP.NET Core  
 - Entity Framework Core  
-- SQL Server (može i LocalDB)  
+- SQL Server
 - Serilog za logovanje u fajl  
 - Swagger za dokumentaciju API-ja  
 
@@ -29,5 +29,5 @@ Projekt je zamišljen kao primjer modernog ASP.NET backend-a sa čistom arhitekt
 1. Klonirajte repo:
 
 ```bash
-git clone <repo-url>
+git clone <(https://github.com/EmaSah01/ASP.NET aplikacija/edit/master/README.md)>
 cd ASP.NET_aplikacija
