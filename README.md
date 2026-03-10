@@ -1,134 +1,33 @@
-M2M Consumer ASP.NET Core Web API
-Overview
+# ASP.NET Ratings API
 
-This project is an ASP.NET Core Web API application that demonstrates a Machine-to-Machine (M2M) consumer architecture using:
+## Opis projekta
+Ova ASP.NET aplikacija pruža REST API za upravljanje ratingom proizvoda.  
+Aplikacija uključuje:
 
-REST Controllers
+- CRUD operacije za ratinge (Create, Read, Update, Delete)  
+- M2M (Machine-to-Machine) endpoint za prijem ratinga od uređaja  
+- Logovanje aktivnosti u konzolu i fajl  
+- Integracija sa bazom podataka preko Entity Framework Core  
 
-Layered architecture (Controller → Service → External API)
+Projekt je zamišljen kao primjer modernog ASP.NET backend-a sa čistom arhitekturom:  
+`Controller → Service → DAO → Database`.
 
-HttpClient for external API communication
+---
 
-OAuth 2.0 Client Credentials flow
+## Tehnologije
 
-Parallel request execution
+- .NET 7 / ASP.NET Core  
+- Entity Framework Core  
+- SQL Server (može i LocalDB)  
+- Serilog za logovanje u fajl  
+- Swagger za dokumentaciju API-ja  
 
-The application simulates integration with an external RBI API and demonstrates how to securely obtain an access token and call protected endpoints.
+---
 
-Architecture
+## Instalacija i pokretanje
 
-The project follows a layered architecture pattern:
+1. Klonirajte repo:
 
-Client (Browser / Swagger)
-        ↓
-Controller
-        ↓
-Service Layer
-        ↓
-External API Service
-        ↓
-OAuth Server (Token)
-        ↓
-RBI API
-Layers Explained
-
-Controllers
-Handle incoming HTTP requests and return responses.
-
-Service Layer
-Contains business logic and orchestrates external API calls.
-
-External API Service
-Uses HttpClient to:
-
-Request OAuth access token
-
-Call external RBI API with Bearer token
-
-Token Service
-Implements OAuth 2.0 Client Credentials flow.
-
-Features
-
-REST API endpoints
-
-OAuth 2.0 Client Credentials authentication
-
-Secure external API communication
-
-Dependency Injection
-
-Configuration via appsettings.json
-
-Parallel execution of 50 API calls using Task.WhenAll
-
-Project Structure
-Controllers/
-    AccountController.cs
-    RatingController.cs
-
-Services/
-    IAccountService.cs
-    AccountService.cs
-    IExternalApiService.cs
-    ExternalApiService.cs
-    ITokenService.cs
-    TokenService.cs
-
-Configuration/
-    OAuthSettings.cs
-    ExternalApiSettings.cs
-
-Program.cs
-appsettings.json
-Endpoints
-1. Get Account Data
-GET /api/account/{accountId}
-
-Calls the external RBI API using OAuth authentication.
-
-2. Get List of Ratings (Parallel Calls)
-GET /api/rating/list-of-ratings
-
-Performs 50 parallel external API calls and aggregates results.
-
-Configuration
-
-Update appsettings.json:
-
-"OAuth": {
-  "TokenUrl": "https://auth-server.com/connect/token",
-  "ClientId": "your-client-id",
-  "ClientSecret": "your-client-secret",
-  "Scope": "rbi.api"
-},
-"ExternalApi": {
-  "BaseUrl": "https://rbi-api.com/"
-}
-Technologies Used
-
-.NET 8
-
-ASP.NET Core Web API
-
-HttpClient
-
-OAuth 2.0 Client Credentials Flow
-
-IdentityModel
-
-Dependency Injection
-
-How to Run
-
-Clone the repository
-
-Update appsettings.json with valid OAuth and API credentials
-
-Run the project:
-
-dotnet run
-
-Open Swagger:
-
-https://localhost:{port}/swagger
+```bash
+git clone <repo-url>
+cd ASP.NET_aplikacija
