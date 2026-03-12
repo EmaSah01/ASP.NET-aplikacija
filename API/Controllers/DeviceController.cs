@@ -23,24 +23,32 @@ namespace ASP.NET_aplikacija.API.Controllers
         [HttpPost("ratings")]
         public IActionResult ReceiveRatings([FromBody] List<RatingDTO> ratings)
         {
-            if (ratings == null || ratings.Count == 0)
+            try
             {
-                _logger.LogWarning("ReceiveRatings called with empty list");
-                return BadRequest("Ratings list cannot be empty");
+                if (ratings == null || ratings.Count == 0)
+                {
+                    _logger.LogWarning("ReceiveRatings called with empty list");
+                    return BadRequest("Ratings list cannot be empty");
+                }
+
+                _logger.LogInformation("ReceiveRatings called with {Count} ratings", ratings.Count);
+
+                // Spremi sve ratinge u bazu kroz servis
+                foreach (var dto in ratings)
+                {
+                    _logger.LogInformation("Saving rating: Product={Product}, Score={Score}", dto.Product, dto.Score);
+                    _service.SaveDeviceRating(dto); // Metoda u servisu koja sprema pojedinačni DTO
+                }
+
+                _logger.LogInformation("{Count} ratings saved successfully", ratings.Count);
+
+                return Ok(new { message = $"{ratings.Count} ratings saved successfully" });
             }
-
-            _logger.LogInformation("ReceiveRatings called with {Count} ratings", ratings.Count);
-
-            // Spremi sve ratinge u bazu kroz servis
-            foreach (var dto in ratings)
+            catch (Exception ex)
             {
-                _logger.LogInformation("Saving rating: Product={Product}, Score={Score}", dto.Product, dto.Score);
-                _service.SaveDeviceRating(dto); // Metoda u servisu koja sprema pojedinačni DTO
+                _logger.LogError(ex, "Error occurred while saving device ratings");
+                return StatusCode(500, "An error occurred while processing your request.");
             }
-
-            _logger.LogInformation("{Count} ratings saved successfully", ratings.Count);
-
-            return Ok(new { message = $"{ratings.Count} ratings saved successfully" });
         }
     }
 }
