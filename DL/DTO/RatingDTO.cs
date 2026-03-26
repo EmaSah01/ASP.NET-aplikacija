@@ -8,5 +8,6 @@
     }
 }
 
+
 // prenosi podatke izmedju slojeva aplikacije ili
 // prema klijentu
